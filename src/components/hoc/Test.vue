@@ -1,18 +1,28 @@
 <template>
   <div class="test">
-    <h2 class="action">К вам подходит работник и говорит:</h2>
-    <Dialogue/>
-    <Answers/>
-    <div class="amount-questions">1 из 10</div>
+    <h2  v-html="currentQuestion.action" class="action"
+         :class="currentQuestion.action.length < 50 ? 'p-17' : null"
+    ></h2>
+    <Dialogue
+      :cloud="currentQuestion.cloud"
+      :question="currentQuestion.question"
+      :numberQuestion="numberCurrentQuestion"
+    />
+    <Answers :answers="currentQuestion.answers"/>
+    <div class="amount-questions">{{ numberCurrentQuestion }} из {{ amountQuestions }}</div>
   </div>
 </template>
 
 <script>
 import Answers from '@/components/Answers.vue';
 import Dialogue from '@/components/Dialogue.vue';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'Test',
+  computed: {
+    ...mapGetters(['currentQuestion', 'numberCurrentQuestion', 'amountQuestions']),
+  },
   components: {
     Dialogue, Answers,
   },
@@ -24,7 +34,7 @@ export default {
   .test {
     position: absolute;
     left: 50%;
-    top: 57vh;
+    top: 58%;
     width: 1000px;
     transform: translate(-50%, -50%);
 
@@ -34,28 +44,16 @@ export default {
   .action {
     height: 153px;
 
-    padding: 0 25%;
-
     color: white;
     font-size: 42px;
     line-height: 44px;
     text-align: center;
-  }
-
-
-  @media screen and (max-height: 1079px) {
-    .test {
-      transform: translate(-50%, -50%) scale(0.9);
+    &.p-17 {
+      padding: 0 17%;
     }
   }
 
-  @media screen and (max-height: 960px), screen and (max-width: 960px) {
-    .test {
-      transform: translate(-50%, -50%) scale(0.8);
-    }
-  }
-
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     .test {
       position: relative;
       left: 0;
@@ -74,4 +72,27 @@ export default {
       line-height: 24px;
     }
   }
+
+  @media screen and (min-height: 900px) and (max-height: 1079px) {
+    .test {
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+  }
+
+  @media screen and (max-width: 768px) and (min-height: 960px) and (max-height: 1079px) {
+    .test {
+      left: 50%;
+      top: 43%;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  }
+
+  @media screen and (min-width: 980px) and (max-width: 1180px) and (min-height: 1080px) {
+    .test {
+      left: 50%;
+      top: 43%;
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+  }
+
 </style>

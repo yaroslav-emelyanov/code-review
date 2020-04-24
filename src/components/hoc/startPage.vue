@@ -17,7 +17,7 @@
       </div>
       <h3 class="challenge">Вперед! Чур не гуглить!</h3>
       <Border figure="square" class="btn-wrapper">
-        <button class="btn">Пройти тест</button>
+        <button @click="testStart" class="btn">Пройти тест</button>
       </Border>
     </div>
   </div>
@@ -25,9 +25,13 @@
 
 <script>
 import Border from '@/components/wrappers/Border.vue';
+import { mapMutations } from 'vuex';
 
 export default {
   name: 'startPage',
+  methods: {
+    ...mapMutations(['testStart']),
+  },
   components: {
     Border,
   },
@@ -113,18 +117,6 @@ export default {
   }
 
   @media screen and (max-width: 1024px) {
-    .container {
-      transform: translate(-50%, -50%) scale(0.6);
-    }
-  }
-
-  @media screen and (max-width: 860px) {
-    .container {
-      transform: translate(-50%, -50%) scale(0.55);
-    }
-  }
-
-  @media screen and (max-width: 768px) {
     .container {
       flex-wrap: wrap;
 

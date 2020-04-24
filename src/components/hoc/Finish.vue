@@ -3,25 +3,21 @@
     <Border figure="circle" class="picture-wrapper">
       <div class="picture">
         <div class="image"
-             :style="{backgroundImage:`url('${require(`@/assets/img/Test/finish/1.png`)}')`}">
+             :style="{backgroundImage:
+             `url('${require(`@/assets/img/Test/finish/${finish.id}.png`)}')`}">
         </div>
-        <div class="info-desktop">
-          <div class="score">0–4 балла</div>
-          <div v-html="result" class="result"></div>
-        </div>
+        <Score class="info-desktop" :condition="finish.condition" :title="finish.title"/>
       </div>
     </Border>
-    <div class="info-mobile">
-      <div class="score">0–4 балла</div>
-      <div v-html="result" class="result"></div>
-    </div>
-    <div v-html="characteristic" class="characteristic"></div>
+    <Score class="info-mobile" :condition="finish.condition" :title="finish.title"/>
+    <div v-html="finish.text" class="characteristic"></div>
     <div class="row">
       <Border figure="square" class="share">
-        <button class="btn">Поделиться</button>
+        <button v-if="!social" @click="social = true" class="btn orange">Поделиться</button>
+        <socialMedia v-else/>
       </Border>
       <Border figure="square" class="again">
-        <button class="btn">Пройти тест еще раз</button>
+        <button @click="beginTestAgain" class="btn">Пройти тест еще раз</button>
       </Border>
     </div>
   </div>
@@ -29,16 +25,23 @@
 
 <script>
 import Border from '@/components/wrappers/Border.vue';
+import Score from '@/components/Score.vue';
+import socialMedia from '@/components/socialMedia.vue';
+import { mapGetters, mapMutations } from 'vuex';
 
 export default {
   name: 'Finish',
   data: () => ({
-    result: 'Новичок в&nbsp;строительном языке',
-    characteristic: `Вероятно, вы пока далеки от&nbsp;стройплощадки, а метизы вам понятнее блошек.
-    Чаще бывайте на объектах и&nbsp;практикуйтесь с носителями языка.`,
+    social: false,
   }),
+  methods: {
+    ...mapMutations(['beginTestAgain']),
+  },
+  computed: {
+    ...mapGetters(['finish']),
+  },
   components: {
-    Border,
+    Border, Score, socialMedia
   },
 };
 </script>
@@ -47,7 +50,7 @@ export default {
   .finish {
     position: absolute;
     left: 50%;
-    top: 48%;
+    top: 50%;
     transform: translate(-50%, -50%);
 
     width: 856px;
@@ -87,22 +90,10 @@ export default {
     width: 357px;
   }
 
-  .score {
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 35px;
-  }
-  .result {
-    margin-top: 20px;
-
-    font-size: 42px;
-    font-weight: 800;
-    line-height: 50px;
-  }
-
   .characteristic {
     margin-top: 43px;
 
+    color: white;
     font-size: 32px;
     font-weight: bold;
     line-height: 40px;
@@ -118,13 +109,14 @@ export default {
 
   .share {
     width: 47%;
+    background-color: #FD7B23;
   }
 
   .again {
     width: 46%;
   }
 
-  @media screen and (max-width: 980px) {
+  @media screen and (max-width: 1024px) {
     .finish {
       position: relative;
       left: 0;
@@ -166,18 +158,6 @@ export default {
       text-align: center;
     }
 
-    .score {
-      font-size: 14px;
-      line-height: 21px;
-    }
-    .result {
-      margin-top: 7px;
-      padding: 0 20px;
-
-      font-size: 28px;
-      line-height: 32px;
-    }
-
     .characteristic {
       margin-top: 19px;
 
@@ -188,7 +168,7 @@ export default {
     .row {
       flex-direction: column;
       max-width: 300px;
-      margin: 8vh auto 9vh;
+      margin: 6vh auto 4vh;
     }
 
     .btn {
@@ -206,15 +186,9 @@ export default {
     }
   }
 
-  @media screen and (min-width: 980px) and (max-height: 1079px) and (min-height: 768px) {
+  @media screen and (min-width: 1024px) and (min-height: 960px) and (max-height: 1079px) {
     .finish {
       transform: translate(-50%, -50%) scale(0.9);
-    }
-  }
-
-  @media screen and (min-width: 980px) and (max-height: 980px) and (min-height: 768px) {
-    .finish {
-      transform: translate(-50%, -50%) scale(0.7);
     }
   }
 </style>

@@ -48,6 +48,9 @@ export default {
       &:hover {
          background-color: #FD7B23;
        }
+    &.orange {
+      background-color: #FD7B23;
+    }
   }
 
   .amount-questions {
@@ -56,13 +59,13 @@ export default {
     line-height: 47px;
     text-align: center;
     margin-top: 3.5%;
+    margin-bottom: 7%;
   }
 
 
   @media screen  and (max-width: 768px) {
     .amount-questions {
       margin-top: 0.5%;
-      margin-bottom: 7%;
 
       font-size: 16px;
       line-height: 24px;

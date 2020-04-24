@@ -2,10 +2,11 @@
   <div class="wrapper">
     <Border figure="square">
       <div class="answers">
-        <div class="answer">Найду ближайшую бездомную собаку и потрясу её.</div>
-        <div class="answer">Рассмеюсь. Блошек, хах! Вот удумал, а.</div>
-        <div class="answer">Подам ему пакет с мелкими шурупами и саморезами.</div>
-        <div class="answer">Отойду от работника подальше.</div>
+        <div class="answer"
+             v-for="answer of answers"
+             :key="answer.text + answer.id"
+             @click="showIntermediateResult(answer.id)"
+        >{{ answer.text }}</div>
       </div>
     </Border>
   </div>
@@ -13,9 +14,14 @@
 
 <script>
 import Border from '@/components/wrappers/Border.vue';
+import { mapMutations } from 'vuex';
 
 export default {
+  props: ['answers'],
   name: 'Answers',
+  methods: {
+    ...mapMutations(['showIntermediateResult']),
+  },
   components: {
     Border,
   },
@@ -28,11 +34,11 @@ export default {
   }
 
   .answer {
-    padding: 0 52px;
+    padding: 1.6vh 52px;
 
     font-size: 26px;
     font-weight: bold;
-    line-height: 7.2vh;
+
     border-bottom: 5px solid black;
     background-color: white;
     cursor: pointer;
@@ -44,7 +50,7 @@ export default {
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     .wrapper {
       max-width: 420px;
       padding: 3% 10px;

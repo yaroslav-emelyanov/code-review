@@ -2,26 +2,33 @@
   <div class="intermediate-result">
     <div class="picture">
       <div class="face"
-           :style="{backgroundImage: `url('${require(`@/assets/img/Test/intermediate/1.svg`)}')`}">
+           :style="{backgroundImage:
+           `url('${require(`@/assets/img/Test/intermediate/${numberCurrentQuestion}.png`)}')`}">
       </div>
-      <div class="result">Верно!</div>
-      <div v-html="text" class="correct-answer"></div>
+      <div class="result">{{ status ? 'Верно!' : 'А вот и нет!' }}</div>
+      <div v-html="currentQuestion.rightAnswerText" class="correct-answer"></div>
     </div>
     <Border figure="square" class="btn-wrapper">
-      <button class="btn">Следующий вопрос</button>
+      <button @click="nextQuestion" class="btn">
+        {{ numberCurrentQuestion === amountQuestions ? 'Результат теста' : 'Следующий вопрос' }}
+      </button>
     </Border>
-    <div class="amount-questions">1 из 10</div>
+    <div class="amount-questions">{{ numberCurrentQuestion }} из {{ amountQuestions }}</div>
   </div>
 </template>
 
 <script>
 import Border from '@/components/wrappers/Border.vue';
+import { mapGetters, mapMutations } from 'vuex';
 
 export default {
   name: 'intermediateResult',
-  data: () => ({
-    text: 'Блошки — это саморезы и&nbsp;шурупы небольшого размера',
-  }),
+  methods: {
+    ...mapMutations(['nextQuestion']),
+  },
+  computed: {
+    ...mapGetters(['currentQuestion', 'numberCurrentQuestion', 'amountQuestions', 'status']),
+  },
   components: {
     Border,
   },
@@ -82,7 +89,7 @@ export default {
     margin-top: 15.5%;
   }
 
-  @media screen and (max-width: 980px) {
+  @media screen and (max-width: 1024px) {
      .intermediate-result {
        position: relative;
        left: 0;
@@ -91,7 +98,7 @@ export default {
 
        width: auto;
        max-width: 375px;
-       margin: 14.5vh auto 0;
+       margin: 9.5vh auto 0;
        padding: 0 34px;
      }
 
@@ -133,20 +140,6 @@ export default {
     }
   }
 
-  @media screen and (min-width: 980px) and (max-height: 1079px) and (min-height: 768px) {
-    .intermediate-result {
-      top: 58%;
-      transform: translate(-50%, -50%) scale(0.9);
-    }
-  }
-
-  @media screen and (min-width: 980px) and (max-height: 980px) and (min-height: 768px) {
-       .intermediate-result {
-         top: 58%;
-         transform: translate(-50%, -50%) scale(0.7);
-       }
-  }
-
 
   @media screen and (max-width: 375px) {
      .picture {
@@ -164,4 +157,36 @@ export default {
      }
   }
 
+  @media screen and (min-width: 1200px) and (max-height: 1024px) {
+    .intermediate-result {
+      transform: translate(-50%, -50%) scale(0.9);
+    }
+  }
+
+  @media screen and (min-width: 980px) and (max-height: 1079px) and (min-height: 768px) {
+    .intermediate-result {
+      top: 58%;
+      left: 50%;
+      margin: 0;
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+  }
+
+  @media screen and (max-width: 768px) and (min-height: 960px) and (max-height: 1079px) {
+    .intermediate-result {
+      left: 50%;
+      top: 43%;
+      margin: 0;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  }
+
+  @media screen and (min-width: 980px) and (max-width: 1180px) and (min-height: 1080px) {
+    .intermediate-result {
+      left: 50%;
+      top: 44%;
+      margin: 0;
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+  }
 </style>

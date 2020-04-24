@@ -2,12 +2,13 @@
   <div class="dialogue">
     <div class="container">
       <div class="face"
-           :style="{backgroundImage: `url('${require(`@/assets/img/Test/question/1.svg`)}')`}">
+           :style="{backgroundImage:
+           `url('${require(`@/assets/img/Test/question/${numberQuestion}.png`)}')`}">
       </div>
     </div>
     <div class="text">
-      <div class="cloud">— Тут такое дело. Отсыпь блошек, а? Мои кончились.</div>
-      <div class="question">Что сделаете?</div>
+      <div class="cloud">{{ cloud }}</div>
+      <div class="question">{{ question }}</div>
     </div>
   </div>
 </template>
@@ -15,6 +16,7 @@
 <script>
 
 export default {
+  props: ['cloud', 'question', 'numberQuestion'],
   name: 'Dialogue',
 };
 </script>
@@ -81,7 +83,7 @@ export default {
     line-height: 41px;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     .dialogue {
       flex-direction: column;
       padding: 6% 0 0;

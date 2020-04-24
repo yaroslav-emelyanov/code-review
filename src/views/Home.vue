@@ -1,17 +1,24 @@
 <template>
-  <div class="home finish">
+  <div class="home">
     <div class="logo"></div>
-    <Finish/>
+    <component :is="hocComponent"></component>
   </div>
 </template>
 
 <script>
+import startPage from '@/components/hoc/startPage.vue';
+import Test from '@/components/hoc/Test.vue';
+import Result from '@/components/hoc/Result.vue';
 import Finish from '@/components/hoc/Finish.vue';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'Home',
+  computed: {
+    ...mapGetters(['hocComponent']),
+  },
   components: {
-    Finish,
+    startPage, Test, Result, Finish,
   },
 };
 
@@ -27,7 +34,7 @@ export default {
 
      padding-top: 5.5vh;
 
-     overflow: hidden;
+     overflow: auto;
 
      background:  url('~@/assets/img/bg.png') center center/cover no-repeat #137CC9;
   }
@@ -48,49 +55,15 @@ export default {
     }
   }
 
-  @media screen and (max-width: 980px) {
-    .home {
-      &.finish {
-        height: auto;
-      }
-    }
-  }
-
   @media screen and (max-width: 768px) {
     .home {
-      height: auto;
       padding-top: 6%;
       background:  url('~@/assets/img/bg-mobile.png') center center/cover no-repeat;
-      &.test {
-        height: 100%;
-      }
-
     }
 
     .logo {
       height: 45px;
       width: 82.5px;
-    }
-  }
-
-  @media screen and (max-height: 667px) {
-    .home {
-      &.intermediate {
-        height: 100%;
-      }
-      &.test {
-        height: auto;
-      }
-    }
-  }
-
-  @media screen and (max-width: 768px) and (min-height: 980px) {
-    .home {
-      height: 100%;
-      padding-top: 4vh;
-      &.finish {
-        height: 100%;
-      }
     }
   }
 </style>
