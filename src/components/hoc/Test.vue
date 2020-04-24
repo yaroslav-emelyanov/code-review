@@ -42,15 +42,8 @@ export default {
     text-align: center;
   }
 
-  .amount-questions {
-    color: white;
-    font-size: 32px;
-    line-height: 47px;
-    text-align: center;
-    margin-top: 3.5%;
-  }
 
-  @media screen and (max-height: 1080px) {
+  @media screen and (max-height: 1079px) {
     .test {
       transform: translate(-50%, -50%) scale(0.9);
     }
@@ -78,14 +71,6 @@ export default {
       padding: 0 20%;
 
       font-size: 22px;
-      line-height: 24px;
-    }
-
-    .amount-questions {
-      margin-top: 0.5%;
-      margin-bottom: 7%;
-
-      font-size: 16px;
       line-height: 24px;
     }
   }

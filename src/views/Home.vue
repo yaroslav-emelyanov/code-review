@@ -1,17 +1,17 @@
 <template>
-  <div class="home test">
+  <div class="home finish">
     <div class="logo"></div>
-    <Test/>
+    <Finish/>
   </div>
 </template>
 
 <script>
-import Test from '@/components/hoc/Test.vue';
+import Finish from '@/components/hoc/Finish.vue';
 
 export default {
   name: 'Home',
   components: {
-    Test,
+    Finish,
   },
 };
 
@@ -48,6 +48,14 @@ export default {
     }
   }
 
+  @media screen and (max-width: 980px) {
+    .home {
+      &.finish {
+        height: auto;
+      }
+    }
+  }
+
   @media screen and (max-width: 768px) {
     .home {
       height: auto;
@@ -56,6 +64,7 @@ export default {
       &.test {
         height: 100%;
       }
+
     }
 
     .logo {
@@ -66,6 +75,9 @@ export default {
 
   @media screen and (max-height: 667px) {
     .home {
+      &.intermediate {
+        height: 100%;
+      }
       &.test {
         height: auto;
       }
@@ -76,6 +88,9 @@ export default {
     .home {
       height: 100%;
       padding-top: 4vh;
+      &.finish {
+        height: 100%;
+      }
     }
   }
 </style>

@@ -105,18 +105,6 @@ export default {
     margin-top: 5.2%;
   }
 
-  .btn {
-    width: 100%;
-    font-size: 26px;
-    line-height: 76px;
-    border: none;
-    background-color: white;
-    transition: all 0.15s ease-in-out;
-    cursor: pointer;
-    &:hover {
-      background-color: #FD7B23;
-    }
-  }
 
   @media screen and (max-width: 1440px) {
     .container {
@@ -202,9 +190,6 @@ export default {
     .btn {
       font-size: 16px;
       line-height: 58px;
-      &:hover {
-        background-color: #FD7B23;
-      }
     }
   }
 
