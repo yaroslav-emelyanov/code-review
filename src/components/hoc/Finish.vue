@@ -41,7 +41,7 @@ export default {
     ...mapGetters(['finish']),
   },
   components: {
-    Border, Score, socialMedia
+    Border, Score, socialMedia,
   },
 };
 </script>

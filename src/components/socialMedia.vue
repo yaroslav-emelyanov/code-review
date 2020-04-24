@@ -1,20 +1,42 @@
 <template>
-  <social-sharing url="https://vuejs.org/"
-                  title="The Progressive JavaScript Framework"
-                  quote="Vue is a progressive framework for building user interfaces."
-                  hashtags="vuejs,javascript,framework"
-                  twitter-user="vuejs"
+  <div class="social-media">
+  <social-sharing :url="url"
+                  title="Докажи, что ты настоящий строитель — пройди тест от nlmk.shop"
                   inline-template>
-    <div class="social-media">
-      <network network="vk" class="vk"></network>
-      <network network="facebook" class="fb"></network>
+    <div>
+      <network network="vk" class="vk-share"></network>
+      <network network="facebook" class="fb-share"></network>
     </div>
   </social-sharing>
+    <div v-for="social of socials"
+         @click="changeSocial(social)"
+         :class="social"
+         :key="social"
+    ></div>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'socialMedia',
+  data: () => ({
+    socials: ['vk', 'fb'],
+    url: '',
+  }),
+  methods: {
+    changeSocial(social) {
+      const selector = `.${social}-share`;
+      const link = document.querySelector(selector);
+      this.createLink(social);
+      setTimeout(() => {
+        link.click();
+      });
+    },
+    createLink(social) {
+      const level = this.$store.getters.finish.id;
+      this.url = `http://nlmk.we-demonstrate.ru/index.php?level=${level}&social=${social}`;
+    },
+  },
 };
 </script>
 
@@ -47,4 +69,12 @@ export default {
         outline: none;
      }
    }
+
+  .hidden {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    z-index: -100;
+  }
 </style>

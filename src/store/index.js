@@ -27,7 +27,7 @@ export default new Vuex.Store({
       expert: {
         id: 3,
         condition: { min: 7, max: 8 },
-        title: 'Знаток строительного языка',
+        title: 'Я — эксперт строительного языка',
         text: `Часть слов вы знаете, а остальные наверняка можете понять интуитивно. 
         Вы не потеряетесь на стройплощадке и сможете отличить заподлицо от чернухи.`,
       },
@@ -218,7 +218,7 @@ export default new Vuex.Store({
       }
     },
     beginTestAgain(state) {
-      state.core = 0;
+      state.score = 0;
       state.currentQuestion = 1;
       state.hocComponent = 'test';
     },
