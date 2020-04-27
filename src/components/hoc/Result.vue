@@ -186,6 +186,13 @@ export default {
     }
   }
 
+  @media screen and (min-width: 1200px) and (min-height: 520px) and (max-height: 768px) {
+    .intermediate-result {
+      top: 59.7vh;
+      transform: translate(-50%, -50%) scale(0.45);
+    }
+  }
+
   @media screen and (max-width: 768px) and (min-height: 960px) and (max-height: 1079px) {
     .intermediate-result {
       left: 50%;
