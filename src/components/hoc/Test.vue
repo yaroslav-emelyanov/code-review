@@ -1,8 +1,7 @@
 <template>
   <div class="test">
     <h2  v-html="currentQuestion.action" class="action"
-         :class="currentQuestion.action.length < 50 ? 'p-17' : null"
-    ></h2>
+         :class="currentQuestion.id === 10 ? 'max' : null"></h2>
     <Dialogue
       :cloud="currentQuestion.cloud"
       :question="currentQuestion.question"
@@ -34,7 +33,7 @@ export default {
   .test {
     position: absolute;
     left: 50%;
-    top: 58%;
+    top: 59vh;
     width: 1000px;
     transform: translate(-50%, -50%);
 
@@ -42,14 +41,21 @@ export default {
   }
 
   .action {
-    height: 153px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 190px;
 
     color: white;
     font-size: 42px;
     line-height: 44px;
     text-align: center;
-    &.p-17 {
-      padding: 0 17%;
+    &.max {
+      position: relative;
+      width: 120%;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 
@@ -66,7 +72,7 @@ export default {
 
     .action {
       height: auto;
-      padding: 0 20%;
+      padding: 0 10%;
 
       font-size: 22px;
       line-height: 24px;

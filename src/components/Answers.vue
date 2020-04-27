@@ -34,11 +34,16 @@ export default {
   }
 
   .answer {
-    padding: 1.6vh 52px;
+    display: flex;
+    align-items: center;
+
+    min-height: 82px;
+
+    padding: 0 10% 0 6.5%;
 
     font-size: 26px;
+    line-height: 26px;
     font-weight: bold;
-
     border-bottom: 5px solid black;
     background-color: white;
     cursor: pointer;
@@ -58,8 +63,9 @@ export default {
     }
 
     .answer {
-      padding: 2.6% 6%;
+      padding: 0 6%;
 
+      min-height: 39px;
       font-size: 12px;
       line-height: 18px;
       border-width: 3px;

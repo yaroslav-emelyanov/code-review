@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="text">
-      <div class="cloud">{{ cloud }}</div>
+      <div v-html="cloud" class="cloud"></div>
       <div class="question">{{ question }}</div>
     </div>
   </div>
@@ -63,10 +63,10 @@ export default {
     height: 200px;
     transform: translate(-15px, 4px);
 
-    padding: 0 12% 0 28.4%;
+    padding: 0 10% 0 22%;
 
     font-size: 28px;
-    font-weight: bold;
+    font-weight: 800;
     line-height: 36px;
 
     background: url('~@/assets/img/Test/cloud-desktop.svg') center center/contain no-repeat;
@@ -105,7 +105,7 @@ export default {
       height: 113px;
       transform: translate(-20px, -5px);
 
-      padding: 7% 12% 0 19%;
+      padding: 7% 10% 0;
 
       font-size: 16px;
       line-height: 22px;

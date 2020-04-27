@@ -59,7 +59,7 @@ export default {
     line-height: 47px;
     text-align: center;
     margin-top: 3.5%;
-    margin-bottom: 7%;
+    margin-bottom: 6%;
   }
 
 

@@ -53,7 +53,7 @@ export default {
    .vk {
       width: 54px;
       height: 31px;
-      background: url('~@/assets/img/socials/vk.svg');
+      background: url('~@/assets/img/socials/vk.svg') center center/contain no-repeat;
       margin-right: 15%;
       cursor: pointer;
        &:focus {
@@ -63,7 +63,7 @@ export default {
    .fb {
      width: 28px;
      height: 55px;
-     background: url('~@/assets/img/socials/fb.svg');
+     background: url('~@/assets/img/socials/fb.svg') center center/contain no-repeat;
      cursor: pointer;
      &:focus {
         outline: none;
@@ -76,5 +76,18 @@ export default {
     top: 0;
     opacity: 0;
     z-index: -100;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .social-media {
+      height: 56px;
+    }
+
+    .vk {
+      height: 24px;
+    }
+    .fb {
+      height: 38px;
+    }
   }
 </style>

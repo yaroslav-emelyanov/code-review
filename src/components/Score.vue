@@ -21,6 +21,7 @@ export default {
   }
   .result {
     margin-top: 20px;
+    padding-right: 10%;
 
     font-size: 42px;
     font-weight: 800;

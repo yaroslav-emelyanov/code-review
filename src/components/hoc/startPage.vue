@@ -4,16 +4,9 @@
       <div class="image"></div>
     </Border>
     <div class="content">
-      <h2 class="title">Вы знаете, что такое швеллер и метизы. <span>А что такое</span> блошки
-        <span>ишлеп-нога</span>?</h2>
-      <h3 class="subtitle">Давайте проверим ваше знание настоящего строительного языка в тесте
-        <a href="#">nlmk.shop</a></h3>
+      <h2 class="title" v-html="title"></h2>
       <div class="text">
-        <p>Вы попадете в десять ситуаций <span>на стройплощадке</span>. В каждой — фраза из языка
-          строителей, которую вам <span>нужно разгадать</span>.
-        </p>
-        <p>В конце мы посчитаем правильные ответы <span>и покажем</span>, насколько хорошо вы
-          разбираетесь <span>в оборотах</span> <span>прорабов и рабочих</span>.</p>
+        <p v-for="(t, id) of texts" v-html="t" :key="id"></p>
       </div>
       <h3 class="challenge">Вперед! Чур не гуглить!</h3>
       <Border figure="square" class="btn-wrapper">
@@ -29,6 +22,18 @@ import { mapMutations } from 'vuex';
 
 export default {
   name: 'startPage',
+  data: () => ({
+    title: 'Шурик, рюмка и&nbsp;шлеп-нога. Тест&nbsp;на&nbsp;знание строительного языка.',
+    texts: [
+      `Понимать язык строителей — это искусство. Каждый день
+          принимая&nbsp;сотни заказов на металлопродукцию, мы овладели
+          им&nbsp;в&nbsp;совершенстве. А хотите проверить себя?`,
+      `Прямо сейчас пройдите через 10 реальных&nbsp;ситуаций
+          на&nbsp;стройплощадке, разгадайте смысл как можно большего
+          количества терминов и в конце узнаете, насколько хорошо
+          вы&nbsp;понимаете язык строителей.`,
+    ],
+  }),
   methods: {
     ...mapMutations(['testStart']),
   },
@@ -72,7 +77,9 @@ export default {
   .title {
     font-size: 42px;
     font-weight: bold;
-    line-height: 44px;
+    line-height: 48px;
+    letter-spacing: 1px;
+    padding-right: 24%;
   }
 
   .subtitle {
@@ -91,24 +98,27 @@ export default {
   }
 
   .text {
-    margin-top: 7%;
+    margin-top: 6%;
     padding-right: 18px;
 
     font-size: 18px;
     line-height: 24px;
+
+    p {
+      margin-bottom: 15px;
+    }
   }
 
   .challenge {
     font-size: 28px;
     line-height: 38px;
-    margin-top: 12%;
+    margin-top: 5%;
   }
 
   .btn-wrapper {
     width: 91%;
     margin-top: 5.2%;
   }
-
 
   @media screen and (max-width: 1440px) {
     .container {
@@ -146,10 +156,7 @@ export default {
     .title {
       font-size: 28px;
       line-height: 32px;
-
-      span {
-        white-space: nowrap;
-      }
+      padding-right: 0;
     }
 
     .subtitle {
@@ -163,8 +170,8 @@ export default {
 
       font-size: 14px;
       line-height: 20px;
-      span {
-        white-space: nowrap;
+      p {
+        padding: 0 5%;
       }
     }
 
@@ -191,11 +198,21 @@ export default {
       line-height: calc(100vw / 11.71);
     }
 
+
     .image-wrapper {
       width: 100%;
       height: 81vw;
     }
   }
+
+  @media screen and (max-width: 360px) {
+    .text {
+      p {
+        padding: 0;
+      }
+    }
+  }
+
 
   @media screen and (max-width: 768px) and (min-height: 980px) {
     .container {

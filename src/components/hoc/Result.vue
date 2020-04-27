@@ -5,8 +5,7 @@
            :style="{backgroundImage:
            `url('${require(`@/assets/img/Test/intermediate/${numberCurrentQuestion}.png`)}')`}">
       </div>
-      <div class="result">{{ status ? 'Верно!' : 'А вот и нет!' }}</div>
-      <div v-html="currentQuestion.rightAnswerText" class="correct-answer"></div>
+      <div class="answer" v-html="answer"></div>
     </div>
     <Border figure="square" class="btn-wrapper">
       <button @click="nextQuestion" class="btn">
@@ -27,7 +26,7 @@ export default {
     ...mapMutations(['nextQuestion']),
   },
   computed: {
-    ...mapGetters(['currentQuestion', 'numberCurrentQuestion', 'amountQuestions', 'status']),
+    ...mapGetters(['currentQuestion', 'numberCurrentQuestion', 'amountQuestions', 'answer']),
   },
   components: {
     Border,
@@ -39,7 +38,7 @@ export default {
   .intermediate-result {
     position: absolute;
     left: 50%;
-    top: 58%;
+    top: 59.7vh;
 
     width: 555px;
     transform: translate(-50%, -50%);
@@ -48,20 +47,29 @@ export default {
   }
 
   .picture {
-    height: 554px;
+    height: 590px;
     border: 5px solid black;
     background-color: white;
   }
 
   .face {
-    width: 232px;
-    height: 298px;
+    width: 100%;
+    height: 300px;
 
     margin: 27px auto;
 
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+  }
+
+  .answer {
+    padding: 0 10%;
+    margin-top: 42px;
+
+    font-size: 26px;
+    line-height: 34px;
+    font-weight: bold;
   }
 
   .result {
@@ -86,7 +94,7 @@ export default {
   }
 
   .amount-questions {
-    margin-top: 15.5%;
+    margin-top: 9.5%;
   }
 
   @media screen and (max-width: 1024px) {
@@ -98,12 +106,12 @@ export default {
 
        width: auto;
        max-width: 375px;
-       margin: 9.5vh auto 0;
+       margin: 14vh auto 0;
        padding: 0 34px;
      }
 
      .picture {
-       height: 333px;
+       height: 336px;
      }
 
      .face {
@@ -112,6 +120,14 @@ export default {
 
        margin: 27px auto 14px;
      }
+
+      .answer {
+        margin-top: 30px;
+
+        font-size: 14px;
+        line-height: 19px;
+        text-align: center;
+      }
 
      .result {
        font-size: 24px;
@@ -142,10 +158,6 @@ export default {
 
 
   @media screen and (max-width: 375px) {
-     .picture {
-       height: auto;
-     }
-
      .face {
        height: 46vw;
        margin: 3vh auto;
@@ -157,17 +169,19 @@ export default {
      }
   }
 
-  @media screen and (min-width: 1200px) and (max-height: 1024px) {
-    .intermediate-result {
-      transform: translate(-50%, -50%) scale(0.9);
-    }
-  }
 
   @media screen and (min-width: 980px) and (max-height: 1079px) and (min-height: 768px) {
     .intermediate-result {
-      top: 58%;
+      top: 42vh;
       left: 50%;
       margin: 0;
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+  }
+
+  @media screen and (min-width: 1200px) and (max-height: 1024px) {
+    .intermediate-result {
+      top: 58vh;
       transform: translate(-50%, -50%) scale(0.8);
     }
   }

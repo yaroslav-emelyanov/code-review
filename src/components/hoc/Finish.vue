@@ -94,9 +94,9 @@ export default {
     margin-top: 43px;
 
     color: white;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: bold;
-    line-height: 40px;
+    line-height: 36px;
     text-align: center;
   }
 
@@ -161,8 +161,9 @@ export default {
     .characteristic {
       margin-top: 19px;
 
-      font-size: 18px;
-      line-height: 28px;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: normal;
     }
 
     .row {
