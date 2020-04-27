@@ -172,7 +172,7 @@ export default {
 
   @media screen and (min-width: 980px) and (max-height: 1079px) and (min-height: 768px) {
     .intermediate-result {
-      top: 42vh;
+      top: 59.7vh;
       left: 50%;
       margin: 0;
       transform: translate(-50%, -50%) scale(0.8);

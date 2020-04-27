@@ -90,7 +90,7 @@ export default new Vuex.Store({
       },
       {
         id: 3,
-        action: 'К вам подходит рабочий и недоуменно произносит:',
+        action: 'Рабочий деликатно останавливает вас у грузовика и недоуменно произносит:',
         cloud: '— Ну и денек — вторая пачка кончилась. Есть еще?',
         question: 'Что он хочет узнать?',
         rightAnswerId: 3,
@@ -113,7 +113,7 @@ export default new Vuex.Store({
         action: `Вы проходите мимо компании сияющих 
                  от&nbsp;солнца сварщиков и&nbsp;слышите обрывок&nbsp;фразы:`,
         cloud: '— Я по молодости вот такого зайчика словил.',
-        question: 'О чем он?',
+        question: 'О чем это?',
         rightAnswerId: 3,
         answer: {
           right: `Верно! Поймать зайчика — это нечаянно посмотреть на сварку без защиты. 
@@ -288,6 +288,10 @@ export default new Vuex.Store({
     currentQuestion: (s) => s.questions[s.currentQuestion - 1],
     numberCurrentQuestion: (s) => s.currentQuestion,
     amountQuestions: (s) => s.questions.length,
+    answers: (s) => {
+      const { answers } = s.questions[s.currentQuestion - 1];
+      return answers.sort(() => Math.random() - 0.5);
+    },
     answer: (s) => {
       const { status, currentQuestion, questions } = s;
       const { answer } = questions[currentQuestion - 1];

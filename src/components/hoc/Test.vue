@@ -7,7 +7,7 @@
       :question="currentQuestion.question"
       :numberQuestion="numberCurrentQuestion"
     />
-    <Answers :answers="currentQuestion.answers"/>
+    <Answers :answers="answers"/>
     <div class="amount-questions">{{ numberCurrentQuestion }} из {{ amountQuestions }}</div>
   </div>
 </template>
@@ -20,7 +20,7 @@ import { mapGetters } from 'vuex';
 export default {
   name: 'Test',
   computed: {
-    ...mapGetters(['currentQuestion', 'numberCurrentQuestion', 'amountQuestions']),
+    ...mapGetters(['currentQuestion', 'numberCurrentQuestion', 'amountQuestions', 'answers']),
   },
   components: {
     Dialogue, Answers,
