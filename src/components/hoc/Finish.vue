@@ -187,16 +187,26 @@ export default {
     }
   }
 
-  @media screen and (min-width: 1200px) and (min-height: 520px) and (max-height: 768px) {
+  @media screen and (min-width: 1200px) and (min-height: 768px) and (max-height: 899px) {
     .finish {
       top: 53vh;
-      transform: translate(-50%, -50%) scale(0.5);
+      transform: translate(-50%, -50%) scale(0.8);
     }
   }
 
-  @media screen and (min-width: 1024px) and (min-height: 960px) and (max-height: 1079px) {
+  @media screen and (max-width: 768px) and (min-height: 960px) and (max-height: 1079px) {
     .finish {
-      transform: translate(-50%, -50%) scale(0.9);
+      left: 50%;
+      top: 53vh;
+      margin: 0;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  }
+
+  @media screen and (min-width: 1200px) and (min-height: 520px) and (max-height: 768px) {
+    .finish {
+      top: 53vh;
+      transform: translate(-50%, -50%) scale(0.6);
     }
   }
 </style>

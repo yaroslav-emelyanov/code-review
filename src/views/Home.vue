@@ -17,6 +17,12 @@ export default {
   computed: {
     ...mapGetters(['hocComponent']),
   },
+  watch: {
+    hocComponent() {
+      const container = document.querySelector('.home');
+      container.scrollTop = 0;
+    },
+  },
   components: {
     startPage, Test, Result, Finish,
   },
@@ -34,13 +40,14 @@ export default {
 
      padding-top: 5.5vh;
 
-     overflow: auto;
+     overflow-y: hidden;
+     overflow-x: hidden;
 
      background:  url('~@/assets/img/bg.png') center center/cover no-repeat #137CC9;
   }
 
   .logo {
-     height: 90px;
+     height: 9vh;
      width: 165px;
 
      margin: 0 auto;
@@ -49,6 +56,9 @@ export default {
   }
 
   @media screen and (max-width: 1024px) {
+    .home {
+      overflow-y: auto;
+    }
     .logo {
       height: 67.5px;
       width: 123.75px;

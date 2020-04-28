@@ -56,7 +56,7 @@ export default {
     width: 100%;
     height: 300px;
 
-    margin: 27px auto;
+    margin: 27px auto 0;
 
     background-size: contain;
     background-position: center;
@@ -64,8 +64,13 @@ export default {
   }
 
   .answer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 254px;
+
     padding: 0 10%;
-    margin-top: 42px;
 
     font-size: 26px;
     line-height: 34px;
@@ -122,7 +127,7 @@ export default {
      }
 
       .answer {
-        margin-top: 30px;
+        height: 135px;
 
         font-size: 14px;
         line-height: 19px;
@@ -147,6 +152,9 @@ export default {
        .btn {
          font-size: 16px;
          line-height: 57px;
+         &:hover {
+           background-color: white;
+         }
        }
      }
 
@@ -160,7 +168,7 @@ export default {
   @media screen and (max-width: 375px) {
      .face {
        height: 46vw;
-       margin: 3vh auto;
+       margin: 3vh auto 0;
      }
 
      .correct-answer {
@@ -169,19 +177,9 @@ export default {
      }
   }
 
-
-  @media screen and (min-width: 980px) and (max-height: 1079px) and (min-height: 768px) {
+  @media screen and (min-width: 1200px) and (min-height: 768px) and (max-height: 899px) {
     .intermediate-result {
       top: 59.7vh;
-      left: 50%;
-      margin: 0;
-      transform: translate(-50%, -50%) scale(0.8);
-    }
-  }
-
-  @media screen and (min-width: 1200px) and (max-height: 1024px) {
-    .intermediate-result {
-      top: 58vh;
       transform: translate(-50%, -50%) scale(0.8);
     }
   }

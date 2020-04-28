@@ -1,11 +1,11 @@
 <template>
   <div class="wrapper">
     <Border figure="square">
-      <div class="answers">
-        <div class="answer"
+      <div class="answers" :class="{disabled}">
+        <div class="answer" :class="{active: activeAnswer === answer.id}"
              v-for="answer of answers"
              :key="answer.text + answer.id"
-             @click="showIntermediateResult(answer.id)"
+             @click="changeAnswer(answer.id)"
         >{{ answer.text }}</div>
       </div>
     </Border>
@@ -19,8 +19,18 @@ import { mapMutations } from 'vuex';
 export default {
   props: ['answers'],
   name: 'Answers',
+  data: () => ({
+    disabled: false,
+    activeAnswer: null,
+  }),
   methods: {
     ...mapMutations(['showIntermediateResult']),
+    changeAnswer(id) {
+      this.activeAnswer = id;
+      this.disabled = true;
+      const width = window.innerWidth;
+      this.showIntermediateResult({ id, width });
+    },
   },
   components: {
     Border,
@@ -33,16 +43,22 @@ export default {
     padding: 2% 85px 0 90px;
   }
 
+  .answers {
+    &.disabled {
+      pointer-events: none;
+    }
+  }
+
   .answer {
     display: flex;
     align-items: center;
 
-    min-height: 82px;
+    height: 82px;
 
     padding: 0 10% 0 6.5%;
 
     font-size: 26px;
-    line-height: 26px;
+    line-height: 30px;
     font-weight: bold;
     border-bottom: 5px solid black;
     background-color: white;
@@ -65,10 +81,19 @@ export default {
     .answer {
       padding: 0 6%;
 
-      min-height: 39px;
+      height: 39px;
       font-size: 12px;
-      line-height: 18px;
+      line-height: 14px;
       border-width: 3px;
+      &.active {
+        background-color: #FD7B23;
+      }
+    }
+  }
+
+  @media screen and (max-width: 360px) {
+    .answer {
+      height: 44px;
     }
   }
 </style>

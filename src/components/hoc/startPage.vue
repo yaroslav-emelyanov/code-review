@@ -133,6 +133,13 @@ export default {
     }
   }
 
+  @media screen and (min-width: 1200px) and (min-height: 768px) and (max-height: 899px) {
+    .container {
+      top: 58vh;
+      transform: translate(-50%, -50%) scale(0.9);
+    }
+  }
+
   @media screen and (max-width: 1024px) {
     .container {
       flex-wrap: wrap;

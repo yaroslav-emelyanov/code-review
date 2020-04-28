@@ -25,6 +25,7 @@ export default {
 
   html, body {
     height: 100%;
+    overflow: hidden;
     font-family: Circe;
   }
 
@@ -32,8 +33,9 @@ export default {
     margin: 0;
     padding: 0;
   }
+
   #app {
-    height:100%;
+    height: 100%;
   }
 
   .btn {
@@ -56,6 +58,7 @@ export default {
   .amount-questions {
     color: white;
     font-size: 32px;
+    font-weight: bold;
     line-height: 47px;
     text-align: center;
     margin-top: 3.5%;
@@ -63,7 +66,7 @@ export default {
   }
 
 
-  @media screen  and (max-width: 768px) {
+  @media screen  and (max-width: 1024px) {
     .amount-questions {
       margin-top: 0.5%;
 

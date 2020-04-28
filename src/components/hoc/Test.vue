@@ -1,7 +1,7 @@
 <template>
   <div class="test">
     <h2  v-html="currentQuestion.action" class="action"
-         :class="currentQuestion.id === 10 ? 'max' : null"></h2>
+         :class="className"></h2>
     <Dialogue
       :cloud="currentQuestion.cloud"
       :question="currentQuestion.question"
@@ -21,6 +21,12 @@ export default {
   name: 'Test',
   computed: {
     ...mapGetters(['currentQuestion', 'numberCurrentQuestion', 'amountQuestions', 'answers']),
+    className() {
+      if (this.currentQuestion.id === 10) return 'max';
+      const array = [1];
+      if (array.includes(this.currentQuestion.id)) return 'min';
+      return null;
+    },
   },
   components: {
     Dialogue, Answers,
@@ -57,6 +63,9 @@ export default {
       left: 50%;
       transform: translateX(-50%);
     }
+    &.min {
+      padding: 0 10%;
+    }
   }
 
   @media screen and (max-width: 1024px) {
@@ -68,6 +77,7 @@ export default {
       transform: translate(0, 0);
 
       padding-top: 6.8%;
+      overflow-x: hidden;
     }
 
     .action {
@@ -79,7 +89,7 @@ export default {
     }
   }
 
-  @media screen and (min-height: 900px) and (max-height: 1079px) {
+  @media screen and (min-width: 1200px) and (min-height: 768px) and (max-height: 899px) {
     .test {
       transform: translate(-50%, -50%) scale(0.8);
     }
