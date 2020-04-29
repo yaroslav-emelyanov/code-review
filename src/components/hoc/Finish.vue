@@ -50,7 +50,7 @@ export default {
   .finish {
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 50vh;
     transform: translate(-50%, -50%);
 
     width: 856px;
@@ -187,17 +187,24 @@ export default {
     }
   }
 
+  @media screen and (min-width: 1200px) and (min-height: 900px) and (max-height: 1079px) {
+    .finish {
+      top: 50vh;
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+  }
+
   @media screen and (min-width: 1200px) and (min-height: 768px) and (max-height: 899px) {
     .finish {
-      top: 53vh;
-      transform: translate(-50%, -50%) scale(0.8);
+      top: 50vh;
+      transform: translate(-50%, -50%) scale(0.7);
     }
   }
 
   @media screen and (max-width: 768px) and (min-height: 960px) and (max-height: 1079px) {
     .finish {
       left: 50%;
-      top: 53vh;
+      top: 50vh;
       margin: 0;
       transform: translate(-50%, -50%) scale(1.1);
     }
@@ -205,8 +212,8 @@ export default {
 
   @media screen and (min-width: 1200px) and (min-height: 520px) and (max-height: 768px) {
     .finish {
-      top: 53vh;
-      transform: translate(-50%, -50%) scale(0.6);
+      top: 50vh;
+      transform: translate(-50%, -50%) scale(0.65);
     }
   }
 </style>

@@ -23,6 +23,16 @@ export default {
       container.scrollTop = 0;
     },
   },
+  mounted() {
+    const $body = document.querySelector('body');
+    let scrollPosition = 0;
+
+    scrollPosition = window.pageYOffset;
+    $body.style.overflow = 'hidden';
+    $body.style.position = 'fixed';
+    $body.style.top = `-${scrollPosition}px`;
+    $body.style.width = '100%';
+  },
   components: {
     startPage, Test, Result, Finish,
   },
@@ -58,6 +68,7 @@ export default {
   @media screen and (max-width: 1024px) {
     .home {
       overflow-y: auto;
+      padding-bottom: 50px;
     }
     .logo {
       height: 67.5px;

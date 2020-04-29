@@ -26,8 +26,8 @@ export default {
   methods: {
     ...mapMutations(['showIntermediateResult']),
     changeAnswer(id) {
-      this.activeAnswer = id;
       this.disabled = true;
+      this.activeAnswer = id;
       const width = window.innerWidth;
       this.showIntermediateResult({ id, width });
     },
@@ -63,11 +63,19 @@ export default {
     border-bottom: 5px solid black;
     background-color: white;
     cursor: pointer;
-    &:hover {
+    &.active {
       background-color: #FD7B23;
     }
     &:last-child {
       border-bottom: none;
+    }
+  }
+
+  @media screen and (min-width: 1025px) and (min-height: 1025px) {
+    .answer {
+      &:hover {
+        background-color: #FD7B23;
+      }
     }
   }
 
@@ -85,9 +93,6 @@ export default {
       font-size: 12px;
       line-height: 14px;
       border-width: 3px;
-      &.active {
-        background-color: #FD7B23;
-      }
     }
   }
 
