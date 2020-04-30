@@ -34,7 +34,7 @@ export default {
     },
     createLink(social) {
       const level = this.$store.getters.finish.id;
-      this.url = `http://nlmk.we-demonstrate.ru/index.php?level=${level}&social=${social}`;
+      this.url = `${window.location.origin}/index.php?level=${level}&social=${social}`;
     },
   },
 };
