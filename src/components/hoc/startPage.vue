@@ -4,11 +4,14 @@
       <div class="image"></div>
     </Border>
     <div class="content">
-      <h2 class="title" v-html="title"></h2>
-      <div class="text">
-        <p v-for="(t, id) of texts" v-html="t" :key="id"></p>
+      <div class="wrapper-inner">
+        <h2 class="title" v-html="title"></h2>
+        <div class="subtitle" v-html="subtitle"></div>
+        <div class="text">
+          <p v-for="(t, id) of texts" v-html="t" :key="id"></p>
+        </div>
+        <h3 class="challenge">Вперед! Чур не гуглить!</h3>
       </div>
-      <h3 class="challenge">Вперед! Чур не гуглить!</h3>
       <Border figure="square" class="btn-wrapper">
         <button @click="testStart" class="btn">Пройти тест</button>
       </Border>
@@ -22,8 +25,8 @@ import { mapMutations } from 'vuex';
 
 export default {
   name: 'startPage',
+  props: ['title', 'subtitle'],
   data: () => ({
-    title: 'Шурик, рюмка и&nbsp;шлеп-нога. Тест&nbsp;на&nbsp;знание строительного языка.',
     texts: [
       `Понимать язык строителей — это искусство. Каждый день
           принимая&nbsp;сотни заказов на металлопродукцию, мы овладели
@@ -47,20 +50,20 @@ export default {
 
   .container {
     position: absolute;
-    top: 53vh;
+    top: 50vh;
     left: 50%;
     transform: translate(-50%, -50%);
 
     display: flex;
     justify-content: space-between;
 
-    width: 1320px;
-    padding: 0 42px 0 62px;
+    width: 1200px;
+    padding: 0 40px 0 55px;
   }
 
   .image-wrapper {
-    width: 545px;
-    height: 591px;
+    width: 496px;
+    height: 537px
   }
 
   .image {
@@ -70,25 +73,25 @@ export default {
   }
 
   .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 46.5%;
     color: white;
   }
 
   .title {
-    font-size: 42px;
+    font-size: 36px;
     font-weight: bold;
-    line-height: 48px;
-    letter-spacing: 1px;
-    padding-right: 24%;
+    letter-spacing: 0.5px;
+    transform: translateX(-20px);
   }
 
   .subtitle {
-    margin-top: 6%;
-
     font-size: 28px;
     line-height: 34px;
     font-weight: 300;
-
+    letter-spacing: 0.5px;
     a {
       font-weight: bold;
       color: white;
@@ -98,11 +101,11 @@ export default {
   }
 
   .text {
-    margin-top: 6%;
+    margin-top: 11%;
     padding-right: 18px;
 
     font-size: 18px;
-    line-height: 24px;
+    line-height: 22px;
 
     p {
       margin-bottom: 15px;
@@ -116,8 +119,7 @@ export default {
   }
 
   .btn-wrapper {
-    width: 91%;
-    margin-top: 5.2%;
+    width: 92%;
   }
 
   @media screen and (max-width: 1440px) {
@@ -177,6 +179,7 @@ export default {
       font-size: 28px;
       line-height: 32px;
       padding-right: 0;
+      transform: translateX(0);
     }
 
     .subtitle {

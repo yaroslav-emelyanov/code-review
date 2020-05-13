@@ -65,7 +65,6 @@ export default {
     margin-bottom: 6%;
   }
 
-
   @media screen  and (max-width: 1024px) {
     .amount-questions {
       margin-top: 0.5%;

@@ -86,6 +86,13 @@ export default {
 
       font-size: 22px;
       line-height: 24px;
+      &.max {
+        position: relative;
+        width: 100%;
+        left: 0;
+        transform: translateX(0);
+        padding: 0 10%;
+      }
     }
   }
 
@@ -111,7 +118,7 @@ export default {
   @media screen and (max-width: 768px) and (min-height: 960px) and (max-height: 1079px) {
     .test {
       left: 50%;
-      top: 43%;
+      top: 35vh;
       transform: translate(-50%, -50%) scale(1.1);
     }
   }
@@ -119,8 +126,19 @@ export default {
   @media screen and (min-width: 980px) and (max-width: 1180px) and (min-height: 1080px) {
     .test {
       left: 50%;
-      top: 43%;
+      top: 35vh;
       transform: translate(-50%, -50%) scale(1.2);
+    }
+  }
+
+  @media screen  and (max-width: 420px) {
+    .test {
+      padding-top: 2.8%;
+    }
+
+    .action {
+      font-size: 18px;
+      line-height: 20px;
     }
   }
 
