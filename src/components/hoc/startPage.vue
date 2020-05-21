@@ -5,7 +5,7 @@
     </Border>
     <div class="content">
       <div class="wrapper-inner">
-        <h2 class="title" v-html="title"></h2>
+        <h2 class="title" v-html="testName"></h2>
         <div class="subtitle" v-html="subtitle"></div>
         <div class="text">
           <p v-for="(t, id) of texts" v-html="t" :key="id"></p>
@@ -25,13 +25,13 @@ import { mapMutations } from 'vuex';
 
 export default {
   name: 'startPage',
-  props: ['title', 'subtitle'],
+  props: ['testName', 'subtitle'],
   data: () => ({
     texts: [
       `Понимать язык строителей — это искусство. Каждый день
           принимая&nbsp;сотни заказов на металлопродукцию, мы овладели
           им&nbsp;в&nbsp;совершенстве. А хотите проверить себя?`,
-      `Прямо сейчас пройдите через 10 реальных&nbsp;ситуаций
+      `Прямо сейчас пройдите через 10&nbsp;реальных&nbsp;ситуаций
           на&nbsp;стройплощадке, разгадайте смысл как можно большего
           количества терминов и в конце узнаете, насколько хорошо
           вы&nbsp;понимаете язык строителей.`,
@@ -101,11 +101,11 @@ export default {
   }
 
   .text {
-    margin-top: 11%;
+    margin-top: 9%;
     padding-right: 18px;
 
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 22px;
+    line-height: 24px;
 
     p {
       margin-bottom: 15px;

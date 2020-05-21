@@ -71,7 +71,7 @@ export default {
     }
   }
 
-  @media screen and (min-width: 1025px) and (min-height: 1025px) {
+  @media screen and (min-width: 1025px) and (min-height: 768px) {
     .answer {
       &:hover {
         background-color: #FD7B23;

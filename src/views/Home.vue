@@ -10,7 +10,7 @@
         <div class="subtitle" v-html="subtitle"></div>
       </div>
     </div>
-    <component :is="hocComponent" :title="title" :subtitle="subtitle"></component>
+    <component :is="hocComponent" :testName="title" :subtitle="subtitle"></component>
   </div>
 </template>
 

@@ -16,7 +16,10 @@ export default new Vuex.Store({
         title: 'Стажер-практикант',
         text: `Вероятно, вы&nbsp;пока далеки от&nbsp;стройплощадки, а&nbsp;шуруповерт вам понятнее шурика. 
                 Чаще бывайте на&nbsp;объектах и&nbsp;практикуйтесь с&nbsp;носителями языка&nbsp;&mdash; все приходит с&nbsp;опытом. 
-                А&nbsp;еще заглядывайте на&nbsp;nlmk.shop, чтобы узнать больше о&nbsp;металлопродукции.`,
+                А&nbsp;еще заглядывайте на&nbsp;
+                <a href="https://nlmk.shop/" style="color: white; text-decoration: none;" 
+                target="_blank">nlmk.shop</a>
+                , чтобы узнать больше о&nbsp;металлопродукции.`,
       },
       skilled: {
         id: 2,
@@ -24,7 +27,8 @@ export default new Vuex.Store({
         title: 'Языковой прораб',
         text: `Многие слова вы&nbsp;знаете твердо, а&nbsp;остальные наверняка можете понять интуитивно. 
                Вы&nbsp;не&nbsp;потеряетесь на&nbsp;стройплощадке и&nbsp;сможете отличить заподлицо от&nbsp;чернухи. 
-               И&nbsp;легко сориентируетесь в&nbsp;каталоге продукции nlmk.shop.`,
+               И&nbsp;легко сориентируетесь в&nbsp;каталоге продукции <a href="https://nlmk.shop/" 
+               style="color: white; text-decoration: none;" target="_blank">nlmk.shop</a>.`,
       },
       expert: {
         id: 3,
@@ -32,7 +36,9 @@ export default new Vuex.Store({
         title: 'Инженер стройяза',
         text: `Вы&nbsp;часто бываете на&nbsp;стройплощадке&nbsp;&mdash; это ясно с&nbsp;полуслова. 
                Легко можете найти общий язык и&nbsp;с&nbsp;простым рабочим, и&nbsp;с&nbsp;отделом снабжения, 
-               а&nbsp;затем быстро заказать все на&nbsp;nlmk.shop. Майна вам по&nbsp;карьерной лестнице!`,
+               а&nbsp;затем быстро заказать все на&nbsp;<a href="https://nlmk.shop/" 
+               style="color: white; text-decoration: none;" 
+               target="_blank">nlmk.shop</a>. Майна вам по&nbsp;карьерной лестнице!`,
       },
       highLevel: {
         id: 4,
@@ -40,7 +46,9 @@ export default new Vuex.Store({
         title: 'Старший бригадир',
         text: `С&nbsp;вами можно и&nbsp;в&nbsp;котлован, и&nbsp;на&nbsp;кран&nbsp;&mdash; вы&nbsp;всегда понимаете, что происходит, 
                и&nbsp;можете объяснить это другим. 
-               Можете даже открыть свой образовательный курс&nbsp;&mdash; nlmk.shop 
+               Можете даже открыть свой образовательный курс&nbsp;&mdash; 
+               <a href="https://nlmk.shop/" style="color: white; text-decoration: none;" 
+               target="_blank">nlmk.shop</a> 
                поможет вам с&nbsp;наглядными пособиями.`,
       },
     },
@@ -128,7 +136,7 @@ export default new Vuex.Store({
                   Чтобы такого не&nbsp;случилось, надевайте сварочную маску.`,
         },
         answers: [
-          { id: 1, text: 'Видимо мимо пробегал заяц, которого он поймал.' },
+          { id: 1, text: 'Видимо, мимо пробегал заяц, которого он поймал.' },
           {
             id: 2, text: `Словить зайчика — это случайно посмотреть на сварку. 
                           После этого в глазах мелькают искры — зайчики.`,
