@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # nlmk
 
 ## Project setup
@@ -27,3 +28,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+=======
+NLMK_test
+>>>>>>> f1ac7314b4a2c6334e922418568ce171fa2ec6ce

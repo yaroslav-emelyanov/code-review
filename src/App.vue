@@ -1,32 +1,76 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <Home/>
   </div>
 </template>
 
+<script>
+import Home from '@/views/Home.vue';
+
+export default {
+  components: {
+    Home,
+  },
+};
+
+</script>
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  @import "~@/assets/fonts.css";
+  @import '~normalize.css';
 
-#nav {
-  padding: 30px;
+  * {
+    box-sizing: border-box;
+  }
 
-  a {
+  html, body {
+    height: 100vh;
+    overflow: hidden;
+    font-family: Circe;
+  }
+
+  h1, h2, h3, h4, p {
+    margin: 0;
+    padding: 0;
+  }
+
+  #app {
+    height: 100%;
+  }
+
+  .btn {
+    width: 100%;
+    font-size: 26px;
     font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+    line-height: 76px;
+    border: none;
+    background-color: white;
+    transition: all 0.15s ease-in-out;
+    cursor: pointer;
+      &:hover {
+         background-color: #FD7B23;
+       }
+    &.orange {
+      background-color: #FD7B23;
     }
   }
-}
+
+  .amount-questions {
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 47px;
+    text-align: center;
+    margin-top: 3.5%;
+    margin-bottom: 6%;
+  }
+
+  @media screen  and (max-width: 1024px) {
+    .amount-questions {
+      margin-top: 0.5%;
+
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
 </style>
